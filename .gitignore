@@ -1,8 +1,6 @@
 .DS_STORE
 
-/dist/
 www/
-loader/
 /bazel-out
 /integration/bazel/bazel-*
 *.log
