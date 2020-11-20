@@ -2,10 +2,10 @@
 
 import { Components, JSX } from "../types/components";
 
-interface MyComponent extends Components.MyComponent, HTMLElement {}
-export const MyComponent: {
-  prototype: MyComponent;
-  new (): MyComponent;
+interface DefaultComponent extends Components.DefaultComponent, HTMLElement {}
+export const DefaultComponent: {
+  prototype: DefaultComponent;
+  new (): DefaultComponent;
 };
 
 /**

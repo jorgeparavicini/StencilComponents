@@ -1,8 +1,8 @@
 import { r as registerInstance, h } from './index-8bebf794.js';
 
-const myComponentScss = ":host{display:block}";
+const defaultComponentScss = ":host{display:block}";
 
-const MyComponent = class {
+const DefaultComponent = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
   }
@@ -10,6 +10,6 @@ const MyComponent = class {
     return h("div", null, "Default StencilJS component");
   }
 };
-MyComponent.style = myComponentScss;
+DefaultComponent.style = defaultComponentScss;
 
-export { MyComponent as my_component };
+export { DefaultComponent as default_component };

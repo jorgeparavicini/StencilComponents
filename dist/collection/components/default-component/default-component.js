@@ -1,15 +1,15 @@
 import { Component, Prop, h } from '@stencil/core';
-export class MyComponent {
+export class DefaultComponent {
   render() {
     return h("div", null, "Default StencilJS component");
   }
-  static get is() { return "my-component"; }
+  static get is() { return "default-component"; }
   static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
-    "$": ["my-component.scss"]
+    "$": ["default-component.scss"]
   }; }
   static get styleUrls() { return {
-    "$": ["my-component.css"]
+    "$": ["default-component.css"]
   }; }
   static get properties() { return {
     "first": {

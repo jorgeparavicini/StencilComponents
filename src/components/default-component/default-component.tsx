@@ -1,11 +1,11 @@
 import { Component, Prop, h } from '@stencil/core';
 
 @Component({
-  tag: 'my-component',
-  styleUrl: 'my-component.scss',
+  tag: 'default-component',
+  styleUrl: 'default-component.scss',
   shadow: true,
 })
-export class MyComponent {
+export class DefaultComponent {
   /**
    * The first name
    */

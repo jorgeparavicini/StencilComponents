@@ -1,9 +1,9 @@
 import { attachShadow, h, proxyCustomElement } from '@stencil/core/internal/client';
 export { setAssetPath } from '@stencil/core/internal/client';
 
-const myComponentScss = ":host{display:block}";
+const defaultComponentScss = ":host{display:block}";
 
-const MyComponent = class extends HTMLElement {
+const DefaultComponent = class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
@@ -12,14 +12,14 @@ const MyComponent = class extends HTMLElement {
   render() {
     return h("div", null, "Default StencilJS component");
   }
-  static get style() { return myComponentScss; }
+  static get style() { return defaultComponentScss; }
 };
 
-const MyComponent$1 = /*@__PURE__*/proxyCustomElement(MyComponent, [1,"my-component",{"first":[1],"middle":[1],"last":[1]}]);
+const DefaultComponent$1 = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"default-component",{"first":[1],"middle":[1],"last":[1]}]);
 const defineCustomElements = (opts) => {
   if (typeof customElements !== 'undefined') {
     [
-      MyComponent$1
+      DefaultComponent$1
     ].forEach(cmp => {
       if (!customElements.get(cmp.is)) {
         customElements.define(cmp.is, cmp, opts);
@@ -28,4 +28,4 @@ const defineCustomElements = (opts) => {
   }
 };
 
-export { MyComponent$1 as MyComponent, defineCustomElements };
+export { DefaultComponent$1 as DefaultComponent, defineCustomElements };

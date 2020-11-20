@@ -15,5 +15,5 @@ const patchBrowser = () => {
 };
 
 patchBrowser().then(options => {
-  return index.bootstrapLazy([["my-component.cjs",[[1,"my-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
+  return index.bootstrapLazy([["default-component.cjs",[[1,"default-component",{"first":[1],"middle":[1],"last":[1]}]]]], options);
 });

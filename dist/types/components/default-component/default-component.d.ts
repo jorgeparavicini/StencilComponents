@@ -1,4 +1,4 @@
-export declare class MyComponent {
+export declare class DefaultComponent {
   /**
    * The first name
    */

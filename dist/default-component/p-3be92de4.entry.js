@@ -1,1 +1,0 @@
-import{r as o,h as t}from"./p-851a6721.js";const n=class{constructor(t){o(this,t)}render(){return t("div",null,"Default StencilJS component")}};n.style=":host{display:block}";export{n as my_component}

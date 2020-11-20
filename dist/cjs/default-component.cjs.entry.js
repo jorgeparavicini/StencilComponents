@@ -4,9 +4,9 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const index = require('./index-169a9f5d.js');
 
-const myComponentScss = ":host{display:block}";
+const defaultComponentScss = ":host{display:block}";
 
-const MyComponent = class {
+const DefaultComponent = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
   }
@@ -14,6 +14,6 @@ const MyComponent = class {
     return index.h("div", null, "Default StencilJS component");
   }
 };
-MyComponent.style = myComponentScss;
+DefaultComponent.style = defaultComponentScss;
 
-exports.my_component = MyComponent;
+exports.default_component = DefaultComponent;
