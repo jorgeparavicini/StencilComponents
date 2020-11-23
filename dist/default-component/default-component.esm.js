@@ -1,1 +1,1 @@
-import{p as t,b as a}from"./p-851a6721.js";(()=>{const a=import.meta.url,o={};return""!==a&&(o.resourcesUrl=new URL(".",a).href),t(o)})().then((t=>a([["p-12643a70",[[1,"default-component",{first:[1],middle:[1],last:[1]}]]]],t)));
+import{p as e,b as f}from"./p-fdfb82a7.js";(()=>{const f=import.meta.url,r={};return""!==f&&(r.resourcesUrl=new URL(".",f).href),e(r)})().then((e=>f([["p-eef27fdf",[[1,"static-header"]]]],e)));

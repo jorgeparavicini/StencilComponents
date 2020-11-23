@@ -6,56 +6,32 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 export namespace Components {
-    interface DefaultComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface StaticHeader {
     }
 }
 declare global {
-    interface HTMLDefaultComponentElement extends Components.DefaultComponent, HTMLStencilElement {
+    interface HTMLStaticHeaderElement extends Components.StaticHeader, HTMLStencilElement {
     }
-    var HTMLDefaultComponentElement: {
-        prototype: HTMLDefaultComponentElement;
-        new (): HTMLDefaultComponentElement;
+    var HTMLStaticHeaderElement: {
+        prototype: HTMLStaticHeaderElement;
+        new (): HTMLStaticHeaderElement;
     };
     interface HTMLElementTagNameMap {
-        "default-component": HTMLDefaultComponentElement;
+        "static-header": HTMLStaticHeaderElement;
     }
 }
 declare namespace LocalJSX {
-    interface DefaultComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface StaticHeader {
     }
     interface IntrinsicElements {
-        "default-component": DefaultComponent;
+        "static-header": StaticHeader;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "default-component": LocalJSX.DefaultComponent & JSXBase.HTMLAttributes<HTMLDefaultComponentElement>;
+            "static-header": LocalJSX.StaticHeader & JSXBase.HTMLAttributes<HTMLStaticHeaderElement>;
         }
     }
 }

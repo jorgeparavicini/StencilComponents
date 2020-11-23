@@ -1,6 +1,6 @@
 {
   "entries": [
-    "./components/default-component/default-component.js"
+    "./components/static-header-component/static-header.component.js"
   ],
   "compiler": {
     "name": "@stencil/core",
