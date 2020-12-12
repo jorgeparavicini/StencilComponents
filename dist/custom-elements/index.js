@@ -10,7 +10,7 @@ const DefaultComponent = class extends HTMLElement {
     attachShadow(this);
   }
   render() {
-    return (h("div", { class: "header" }, h("form", { onsubmit: "event.preventDefault();", role: "search", class: "search" }, h("label", { for: "search", class: "search__label" }, "Search"), h("input", { id: "search", type: "search", placeholder: "Search...", class: "search__input", autofocus: true, required: true })), h("nav", { class: "nav" }, h("a", { href: "", class: "nav__label" }, "Home"), h("a", { href: "", class: "nav__label" }, "Gallery"), h("a", { href: "", class: "nav__label" }, "Team"), h("a", { href: "", class: "nav__label" }, "Contact"))));
+    return (h("div", { class: "header" }, h("form", { role: "search", class: "search" }, h("label", { class: "search__label" }, h("input", { id: "search", type: "search", placeholder: "Search...", class: "search__input", autofocus: true, required: true }))), h("nav", { class: "nav" }, h("a", { href: "/home", class: "nav__label" }, "Home"), h("a", { href: "/gallery", class: "nav__label" }, "Gallery"))));
   }
   static get style() { return staticHeaderComponentScss; }
 };
