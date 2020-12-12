@@ -1,11 +1,11 @@
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'static-header',
+  tag: 'static-header-component',
   styleUrl: 'static-header.component.scss',
   shadow: true,
 })
-export class DefaultComponent {
+export class StaticHeaderComponent {
   render() {
     return (
       <div class="header">

@@ -1,5 +1,5 @@
 import { Component, h } from '@stencil/core';
-export class DefaultComponent {
+export class StaticHeaderComponent {
   render() {
     return (h("div", { class: "header" },
       h("form", { onsubmit: "event.preventDefault();", role: "search", class: "search" },
@@ -11,7 +11,7 @@ export class DefaultComponent {
         h("a", { href: "", class: "nav__label" }, "Team"),
         h("a", { href: "", class: "nav__label" }, "Contact"))));
   }
-  static get is() { return "static-header"; }
+  static get is() { return "static-header-component"; }
   static get encapsulation() { return "shadow"; }
   static get originalStyleUrls() { return {
     "$": ["static-header.component.scss"]
