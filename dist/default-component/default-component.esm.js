@@ -1,1 +1,1 @@
-import{p as o,b as e}from"./p-fdfb82a7.js";(()=>{const e=import.meta.url,p={};return""!==e&&(p.resourcesUrl=new URL(".",e).href),o(p)})().then((o=>e([["p-85e027c1",[[1,"home-component"]]],["p-8f17b232",[[1,"static-header-component"]]]],o)));
+import{p as o,b as e}from"./p-fdfb82a7.js";(()=>{const e=import.meta.url,p={};return""!==e&&(p.resourcesUrl=new URL(".",e).href),o(p)})().then((o=>e([["p-85e027c1",[[1,"home-component"]]],["p-45b6699a",[[1,"static-header-component"]]]],o)));

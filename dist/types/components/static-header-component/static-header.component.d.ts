@@ -1,3 +1,3 @@
-export declare class StaticHeaderComponent {
+export declare class DefaultComponent {
   render(): any;
 }
