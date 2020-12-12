@@ -17,6 +17,7 @@ const GalleryComponent = class {
       const message = `An error has occurred: ${response.status}`;
       throw new Error(message);
     }
+    console.log("Fetched");
     this.galleryEntries = await response.json();
   }
   componentDidLoad() {
@@ -24,6 +25,7 @@ const GalleryComponent = class {
   }
   render() {
     if (this.galleryEntries) {
+      console.log("ogeh");
       return (index.h("div", { class: "page__content" }, this.galleryEntries.map((entry) => (index.h("div", { class: "entry" }, index.h("img", { src: entry.imageUrl }), index.h("p", null, entry.imageDescription))))));
     }
   }

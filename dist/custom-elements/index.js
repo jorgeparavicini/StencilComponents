@@ -15,6 +15,7 @@ const GalleryComponent = class extends HTMLElement {
       const message = `An error has occurred: ${response.status}`;
       throw new Error(message);
     }
+    console.log("Fetched");
     this.galleryEntries = await response.json();
   }
   componentDidLoad() {
@@ -22,6 +23,7 @@ const GalleryComponent = class extends HTMLElement {
   }
   render() {
     if (this.galleryEntries) {
+      console.log("ogeh");
       return (h("div", { class: "page__content" }, this.galleryEntries.map((entry) => (h("div", { class: "entry" }, h("img", { src: entry.imageUrl }), h("p", null, entry.imageDescription))))));
     }
   }
