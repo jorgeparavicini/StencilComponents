@@ -18,7 +18,6 @@ export class GalleryComponent {
       throw new Error(message);
     }
 
-    console.log("Fetched")
     this.galleryEntries = await response.json();
   }
 
@@ -28,7 +27,6 @@ export class GalleryComponent {
 
   render() {
     if (this.galleryEntries) {
-      console.log("ogeh")
       return (
         <div class="page__content">
           {this.galleryEntries.map((entry: GalleryEntry) => (
