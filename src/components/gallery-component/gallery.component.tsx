@@ -18,7 +18,7 @@ export class GalleryComponent {
       throw new Error(message);
     }
 
-    this.galleryEntries = JSON.parse(await response.json());
+    this.galleryEntries = await response.json();
   }
 
   componentDidLoad() {
