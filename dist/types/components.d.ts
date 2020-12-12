@@ -6,32 +6,32 @@
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 export namespace Components {
-    interface StaticHeader {
+    interface StaticHeaderComponent {
     }
 }
 declare global {
-    interface HTMLStaticHeaderElement extends Components.StaticHeader, HTMLStencilElement {
+    interface HTMLStaticHeaderComponentElement extends Components.StaticHeaderComponent, HTMLStencilElement {
     }
-    var HTMLStaticHeaderElement: {
-        prototype: HTMLStaticHeaderElement;
-        new (): HTMLStaticHeaderElement;
+    var HTMLStaticHeaderComponentElement: {
+        prototype: HTMLStaticHeaderComponentElement;
+        new (): HTMLStaticHeaderComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "static-header": HTMLStaticHeaderElement;
+        "static-header-component": HTMLStaticHeaderComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface StaticHeader {
+    interface StaticHeaderComponent {
     }
     interface IntrinsicElements {
-        "static-header": StaticHeader;
+        "static-header-component": StaticHeaderComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "static-header": LocalJSX.StaticHeader & JSXBase.HTMLAttributes<HTMLStaticHeaderElement>;
+            "static-header-component": LocalJSX.StaticHeaderComponent & JSXBase.HTMLAttributes<HTMLStaticHeaderComponentElement>;
         }
     }
 }

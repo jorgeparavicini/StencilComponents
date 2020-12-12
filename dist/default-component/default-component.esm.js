@@ -1,1 +1,1 @@
-import{p as e,b as f}from"./p-fdfb82a7.js";(()=>{const f=import.meta.url,r={};return""!==f&&(r.resourcesUrl=new URL(".",f).href),e(r)})().then((e=>f([["p-eef27fdf",[[1,"static-header"]]]],e)));
+import{p as t,b as o}from"./p-fdfb82a7.js";(()=>{const o=import.meta.url,p={};return""!==o&&(p.resourcesUrl=new URL(".",o).href),t(p)})().then((t=>o([["p-8f17b232",[[1,"static-header-component"]]]],t)));

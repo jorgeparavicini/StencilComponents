@@ -15,5 +15,5 @@ const patchBrowser = () => {
 };
 
 patchBrowser().then(options => {
-  return index.bootstrapLazy([["static-header.cjs",[[1,"static-header"]]]], options);
+  return index.bootstrapLazy([["static-header-component.cjs",[[1,"static-header-component"]]]], options);
 });

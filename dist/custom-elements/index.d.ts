@@ -2,10 +2,10 @@
 
 import { Components, JSX } from "../types/components";
 
-interface StaticHeader extends Components.StaticHeader, HTMLElement {}
-export const StaticHeader: {
-  prototype: StaticHeader;
-  new (): StaticHeader;
+interface StaticHeaderComponent extends Components.StaticHeaderComponent, HTMLElement {}
+export const StaticHeaderComponent: {
+  prototype: StaticHeaderComponent;
+  new (): StaticHeaderComponent;
 };
 
 /**

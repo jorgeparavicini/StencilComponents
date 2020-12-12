@@ -15,11 +15,11 @@ const DefaultComponent = class extends HTMLElement {
   static get style() { return staticHeaderComponentScss; }
 };
 
-const StaticHeader = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"static-header"]);
+const StaticHeaderComponent = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"static-header-component"]);
 const defineCustomElements = (opts) => {
   if (typeof customElements !== 'undefined') {
     [
-      StaticHeader
+      StaticHeaderComponent
     ].forEach(cmp => {
       if (!customElements.get(cmp.is)) {
         customElements.define(cmp.is, cmp, opts);
@@ -28,4 +28,4 @@ const defineCustomElements = (opts) => {
   }
 };
 
-export { StaticHeader, defineCustomElements };
+export { StaticHeaderComponent, defineCustomElements };

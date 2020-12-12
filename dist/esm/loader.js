@@ -10,7 +10,7 @@ const patchEsm = () => {
 const defineCustomElements = (win, options) => {
   if (typeof window === 'undefined') return Promise.resolve();
   return patchEsm().then(() => {
-  return bootstrapLazy([["static-header",[[1,"static-header"]]]], options);
+  return bootstrapLazy([["static-header-component",[[1,"static-header-component"]]]], options);
   });
 };
 

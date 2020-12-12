@@ -1,7 +1,7 @@
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'static-header',
+  tag: 'static-header-component',
   styleUrl: 'static-header.component.scss',
   shadow: true,
 })
