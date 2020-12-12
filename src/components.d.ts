@@ -5,13 +5,23 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { GalleryEntry } from "./components/gallery-component/models/gallery-entry.interface";
 export namespace Components {
+    interface GalleryComponent {
+        "galleryEntries": GalleryEntry[];
+    }
     interface HomeComponent {
     }
     interface StaticHeaderComponent {
     }
 }
 declare global {
+    interface HTMLGalleryComponentElement extends Components.GalleryComponent, HTMLStencilElement {
+    }
+    var HTMLGalleryComponentElement: {
+        prototype: HTMLGalleryComponentElement;
+        new (): HTMLGalleryComponentElement;
+    };
     interface HTMLHomeComponentElement extends Components.HomeComponent, HTMLStencilElement {
     }
     var HTMLHomeComponentElement: {
@@ -25,16 +35,21 @@ declare global {
         new (): HTMLStaticHeaderComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "gallery-component": HTMLGalleryComponentElement;
         "home-component": HTMLHomeComponentElement;
         "static-header-component": HTMLStaticHeaderComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface GalleryComponent {
+        "galleryEntries"?: GalleryEntry[];
+    }
     interface HomeComponent {
     }
     interface StaticHeaderComponent {
     }
     interface IntrinsicElements {
+        "gallery-component": GalleryComponent;
         "home-component": HomeComponent;
         "static-header-component": StaticHeaderComponent;
     }
@@ -43,6 +58,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "gallery-component": LocalJSX.GalleryComponent & JSXBase.HTMLAttributes<HTMLGalleryComponentElement>;
             "home-component": LocalJSX.HomeComponent & JSXBase.HTMLAttributes<HTMLHomeComponentElement>;
             "static-header-component": LocalJSX.StaticHeaderComponent & JSXBase.HTMLAttributes<HTMLStaticHeaderComponentElement>;
         }

@@ -1,5 +1,6 @@
 {
   "entries": [
+    "./components/gallery-component/gallery.component.js",
     "./components/home-component/home.component.js",
     "./components/static-header-component/static-header.component.js"
   ],

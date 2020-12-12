@@ -2,6 +2,12 @@
 
 import { Components, JSX } from "../types/components";
 
+interface GalleryComponent extends Components.GalleryComponent, HTMLElement {}
+export const GalleryComponent: {
+  prototype: GalleryComponent;
+  new (): GalleryComponent;
+};
+
 interface HomeComponent extends Components.HomeComponent, HTMLElement {}
 export const HomeComponent: {
   prototype: HomeComponent;
