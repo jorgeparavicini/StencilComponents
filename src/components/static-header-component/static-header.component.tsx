@@ -10,9 +10,7 @@ export class DefaultComponent {
     return (
       <div class="header">
         <form role="search" class="search">
-          <label class="search__label">
-            <input id="search" type="search" placeholder="Search..." class="search__input" autofocus required />
-          </label>
+          <input id="search" type="search" placeholder="Search..." class="search__input" autofocus required />
         </form>
         <nav class="nav">
           <a href="/home" class="nav__label">

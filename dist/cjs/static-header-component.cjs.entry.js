@@ -11,7 +11,7 @@ const DefaultComponent = class {
     index.registerInstance(this, hostRef);
   }
   render() {
-    return (index.h("div", { class: "header" }, index.h("form", { role: "search", class: "search" }, index.h("label", { class: "search__label" }, index.h("input", { id: "search", type: "search", placeholder: "Search...", class: "search__input", autofocus: true, required: true }))), index.h("nav", { class: "nav" }, index.h("a", { href: "/home", class: "nav__label" }, "Home"), index.h("a", { href: "/gallery", class: "nav__label" }, "Gallery"))));
+    return (index.h("div", { class: "header" }, index.h("form", { role: "search", class: "search" }, index.h("input", { id: "search", type: "search", placeholder: "Search...", class: "search__input", autofocus: true, required: true })), index.h("nav", { class: "nav" }, index.h("a", { href: "/home", class: "nav__label" }, "Home"), index.h("a", { href: "/gallery", class: "nav__label" }, "Gallery"))));
   }
 };
 DefaultComponent.style = staticHeaderComponentScss;

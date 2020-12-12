@@ -1,1 +1,1 @@
-import{p as t,b as a}from"./p-fdfb82a7.js";(()=>{const a=import.meta.url,e={};return""!==a&&(e.resourcesUrl=new URL(".",a).href),t(e)})().then((t=>a([["p-a04eddbc",[[1,"static-header-component"]]]],t)));
+import{p as t,b as a}from"./p-fdfb82a7.js";(()=>{const a=import.meta.url,o={};return""!==a&&(o.resourcesUrl=new URL(".",a).href),t(o)})().then((t=>a([["p-45b6699a",[[1,"static-header-component"]]]],t)));
