@@ -1,15 +1,5 @@
 export declare class DefaultComponent {
-  /**
-   * The first name
-   */
-  first: string;
-  /**
-   * The middle name
-   */
-  middle: string;
-  /**
-   * The last name
-   */
-  last: string;
+  startTime: number;
   render(): any;
+  componentDidRender(): void;
 }

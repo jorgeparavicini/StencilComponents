@@ -7,18 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 export namespace Components {
     interface DefaultComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "startTime": number;
     }
 }
 declare global {
@@ -34,18 +23,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DefaultComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "startTime"?: number;
     }
     interface IntrinsicElements {
         "default-component": DefaultComponent;

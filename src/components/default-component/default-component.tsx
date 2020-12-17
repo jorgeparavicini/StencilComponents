@@ -6,22 +6,13 @@ import { Component, Prop, h } from '@stencil/core';
   shadow: true,
 })
 export class DefaultComponent {
-  /**
-   * The first name
-   */
-  @Prop() first: string;
-
-  /**
-   * The middle name
-   */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
+  @Prop() startTime: number = 0;
 
   render() {
     return <div>Default StencilJS component</div>;
+  }
+
+  componentDidRender() {
+    console.log(`Render Time: ${performance.now() - this.startTime}`);
   }
 }

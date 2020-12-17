@@ -459,7 +459,11 @@ const postUpdateComponent = (hostRef) => {
     const tagName = hostRef.$cmpMeta$.$tagName$;
     const elm = hostRef.$hostElement$;
     const endPostUpdate = createTime('postUpdate', tagName);
+    const instance =  hostRef.$lazyInstance$ ;
     const ancestorComponent = hostRef.$ancestorComponent$;
+    {
+        safeCall(instance, 'componentDidRender');
+    }
     if (!(hostRef.$flags$ & 64 /* hasLoadedComponent */)) {
         hostRef.$flags$ |= 64 /* hasLoadedComponent */;
         {
@@ -501,6 +505,17 @@ const appDidLoad = (who) => {
     }
     nextTick(() => emitEvent(win, 'appload', { detail: { namespace: NAMESPACE } }));
 };
+const safeCall = (instance, method, arg) => {
+    if (instance && instance[method]) {
+        try {
+            return instance[method](arg);
+        }
+        catch (e) {
+            consoleError(e);
+        }
+    }
+    return undefined;
+};
 const then = (promise, thenFn) => {
     return promise && promise.then ? promise.then(thenFn) : thenFn();
 };
@@ -508,10 +523,9 @@ const addHydratedFlag = (elm) => ( elm.classList.add('hydrated') );
 const parsePropertyValue = (propValue, propType) => {
     // ensure this value is of the correct prop type
     if (propValue != null && !isComplexType(propValue)) {
-        if ( propType & 1 /* String */) {
-            // could have been passed as a number or boolean
-            // but we still want it as a string
-            return String(propValue);
+        if ( propType & 2 /* Number */) {
+            // force it to be a number
+            return parseFloat(propValue);
         }
         // redundant return here for better minification
         return propValue;

@@ -8,14 +8,18 @@ const DefaultComponent = class extends HTMLElement {
     super();
     this.__registerHost();
     attachShadow(this);
+    this.startTime = 0;
   }
   render() {
     return h("div", null, "Default StencilJS component");
   }
+  componentDidRender() {
+    console.log(`Render Time: ${performance.now() - this.startTime}`);
+  }
   static get style() { return defaultComponentScss; }
 };
 
-const DefaultComponent$1 = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"default-component",{"first":[1],"middle":[1],"last":[1]}]);
+const DefaultComponent$1 = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"default-component",{"startTime":[2,"start-time"]}]);
 const defineCustomElements = (opts) => {
   if (typeof customElements !== 'undefined') {
     [

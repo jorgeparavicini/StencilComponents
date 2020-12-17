@@ -1,7 +1,13 @@
 import { Component, Prop, h } from '@stencil/core';
 export class DefaultComponent {
+  constructor() {
+    this.startTime = 0;
+  }
   render() {
     return h("div", null, "Default StencilJS component");
+  }
+  componentDidRender() {
+    console.log(`Render Time: ${performance.now() - this.startTime}`);
   }
   static get is() { return "default-component"; }
   static get encapsulation() { return "shadow"; }
@@ -12,56 +18,23 @@ export class DefaultComponent {
     "$": ["default-component.css"]
   }; }
   static get properties() { return {
-    "first": {
-      "type": "string",
+    "startTime": {
+      "type": "number",
       "mutable": false,
       "complexType": {
-        "original": "string",
-        "resolved": "string",
+        "original": "number",
+        "resolved": "number",
         "references": {}
       },
       "required": false,
       "optional": false,
       "docs": {
         "tags": [],
-        "text": "The first name"
+        "text": ""
       },
-      "attribute": "first",
-      "reflect": false
-    },
-    "middle": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "The middle name"
-      },
-      "attribute": "middle",
-      "reflect": false
-    },
-    "last": {
-      "type": "string",
-      "mutable": false,
-      "complexType": {
-        "original": "string",
-        "resolved": "string",
-        "references": {}
-      },
-      "required": false,
-      "optional": false,
-      "docs": {
-        "tags": [],
-        "text": "The last name"
-      },
-      "attribute": "last",
-      "reflect": false
+      "attribute": "start-time",
+      "reflect": false,
+      "defaultValue": "0"
     }
   }; }
 }

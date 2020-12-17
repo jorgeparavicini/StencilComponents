@@ -1,0 +1,1 @@
+import{r as e,h as o}from"./p-19a5c227.js";const n=class{constructor(o){e(this,o),this.startTime=0}render(){return o("div",null,"Default StencilJS component")}componentDidRender(){console.log("Render Time: "+(performance.now()-this.startTime))}};n.style=":host{display:block}";export{n as default_component}
