@@ -1,6 +1,6 @@
 'use strict';
 
-const index = require('./index-4c10ea6d.js');
+const index = require('./index-def90b0b.js');
 
 /*
  Stencil Client Patch Browser v2.3.0 | MIT Licensed | https://stenciljs.com
@@ -15,5 +15,5 @@ const patchBrowser = () => {
 };
 
 patchBrowser().then(options => {
-  return index.bootstrapLazy([["static-header-component.cjs",[[1,"static-header-component"]]]], options);
+  return index.bootstrapLazy([["static-header-component.cjs",[[1,"static-header-component",{"startTime":[2,"start-time"]}]]]], options);
 });

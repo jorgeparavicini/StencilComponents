@@ -8,14 +8,18 @@ const DefaultComponent = class extends HTMLElement {
     super();
     this.__registerHost();
     attachShadow(this);
+    this.startTime = 0;
   }
   render() {
     return (h("div", { class: "header" }, h("form", { role: "search", class: "search" }, h("input", { id: "search", type: "search", placeholder: "Search...", class: "search__input", autofocus: true, required: true })), h("nav", { class: "nav" }, h("a", { href: "/home", class: "nav__label" }, "Home"), h("a", { href: "/gallery", class: "nav__label" }, "Gallery"))));
   }
+  componentDidRender() {
+    console.log(`Render Time: ${performance.now() - this.startTime}`);
+  }
   static get style() { return staticHeaderComponentScss; }
 };
 
-const StaticHeaderComponent = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"static-header-component"]);
+const StaticHeaderComponent = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"static-header-component",{"startTime":[2,"start-time"]}]);
 const defineCustomElements = (opts) => {
   if (typeof customElements !== 'undefined') {
     [

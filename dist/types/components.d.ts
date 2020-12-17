@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 export namespace Components {
     interface StaticHeaderComponent {
+        "startTime": number;
     }
 }
 declare global {
@@ -22,6 +23,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface StaticHeaderComponent {
+        "startTime"?: number;
     }
     interface IntrinsicElements {
         "static-header-component": StaticHeaderComponent;
