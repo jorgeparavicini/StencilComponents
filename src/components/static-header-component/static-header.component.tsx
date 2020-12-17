@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'static-header-component',
@@ -6,6 +6,8 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class DefaultComponent {
+  @Prop() startTime: number = 0;
+
   render() {
     return (
       <div class="header">
@@ -22,5 +24,9 @@ export class DefaultComponent {
         </nav>
       </div>
     );
+  }
+
+  componentDidRender(): void {
+    console.log(`Render Time: ${performance.now() - this.startTime}`)
   }
 }

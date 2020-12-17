@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'home-component',
@@ -6,6 +6,8 @@ import { Component, h } from '@stencil/core';
   shadow: true,
 })
 export class HomeComponent {
+  @Prop() startTime: number = 0;
+
   render() {
     return (
       <div class="page__content">
@@ -131,5 +133,9 @@ export class HomeComponent {
         </p>
       </div>
     );
+  }
+
+  componentDidRender(): void {
+    console.log(`Render Time: ${performance.now() - this.startTime}`)
   }
 }
