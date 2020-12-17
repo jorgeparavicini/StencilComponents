@@ -10,7 +10,6 @@ export namespace Components {
         "startTime": number;
     }
     interface StaticHeaderComponent {
-        "startTime": number;
     }
 }
 declare global {
@@ -36,7 +35,6 @@ declare namespace LocalJSX {
         "startTime"?: number;
     }
     interface StaticHeaderComponent {
-        "startTime"?: number;
     }
     interface IntrinsicElements {
         "home-component": HomeComponent;

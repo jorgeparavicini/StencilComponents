@@ -1,5 +1,3 @@
-export declare class DefaultComponent {
-  startTime: number;
+export declare class StaticHeaderComponent {
   render(): any;
-  componentDidRender(): void;
 }

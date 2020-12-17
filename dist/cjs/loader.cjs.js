@@ -14,7 +14,7 @@ const patchEsm = () => {
 const defineCustomElements = (win, options) => {
   if (typeof window === 'undefined') return Promise.resolve();
   return patchEsm().then(() => {
-  return index.bootstrapLazy([["home-component.cjs",[[1,"home-component",{"startTime":[2,"start-time"]}]]],["static-header-component.cjs",[[1,"static-header-component",{"startTime":[2,"start-time"]}]]]], options);
+  return index.bootstrapLazy([["home-component.cjs",[[1,"home-component",{"startTime":[2,"start-time"]}]]],["static-header-component.cjs",[[1,"static-header-component"]]]], options);
   });
 };
 

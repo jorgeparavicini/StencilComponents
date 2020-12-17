@@ -13,5 +13,5 @@ const patchBrowser = () => {
 };
 
 patchBrowser().then(options => {
-  return bootstrapLazy([["home-component",[[1,"home-component",{"startTime":[2,"start-time"]}]]],["static-header-component",[[1,"static-header-component",{"startTime":[2,"start-time"]}]]]], options);
+  return bootstrapLazy([["home-component",[[1,"home-component",{"startTime":[2,"start-time"]}]]],["static-header-component",[[1,"static-header-component"]]]], options);
 });
