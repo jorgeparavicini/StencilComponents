@@ -8,6 +8,7 @@ const GalleryComponent = class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
+    this.startTime = 0;
   }
   async loadGallery() {
     const response = await fetch(URL);
@@ -23,6 +24,11 @@ const GalleryComponent = class extends HTMLElement {
   render() {
     if (this.galleryEntries) {
       return (h("div", { class: "page__content" }, this.galleryEntries.map((entry) => (h("div", { class: "entry" }, h("img", { src: entry.imageUrl }), h("p", null, entry.imageDescription))))));
+    }
+  }
+  componentDidRender() {
+    if (this.galleryEntries) {
+      console.log(`Render Time: ${performance.now() - this.startTime}`);
     }
   }
   static get style() { return galleryComponentScss; }
@@ -56,7 +62,7 @@ const DefaultComponent = class extends HTMLElement {
   static get style() { return staticHeaderComponentScss; }
 };
 
-const GalleryComponent$1 = /*@__PURE__*/proxyCustomElement(GalleryComponent, [0,"gallery-component",{"galleryEntries":[16]}]);
+const GalleryComponent$1 = /*@__PURE__*/proxyCustomElement(GalleryComponent, [0,"gallery-component",{"galleryEntries":[16],"startTime":[2,"start-time"]}]);
 const HomeComponent$1 = /*@__PURE__*/proxyCustomElement(HomeComponent, [1,"home-component"]);
 const StaticHeaderComponent = /*@__PURE__*/proxyCustomElement(DefaultComponent, [1,"static-header-component"]);
 const defineCustomElements = (opts) => {

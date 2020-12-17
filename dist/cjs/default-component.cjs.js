@@ -1,6 +1,6 @@
 'use strict';
 
-const index = require('./index-c88675db.js');
+const index = require('./index-33c3d71c.js');
 
 /*
  Stencil Client Patch Browser v2.3.0 | MIT Licensed | https://stenciljs.com
@@ -15,5 +15,5 @@ const patchBrowser = () => {
 };
 
 patchBrowser().then(options => {
-  return index.bootstrapLazy([["gallery-component.cjs",[[0,"gallery-component",{"galleryEntries":[16]}]]],["home-component.cjs",[[1,"home-component"]]],["static-header-component.cjs",[[1,"static-header-component"]]]], options);
+  return index.bootstrapLazy([["gallery-component.cjs",[[0,"gallery-component",{"galleryEntries":[16],"startTime":[2,"start-time"]}]]],["home-component.cjs",[[1,"home-component"]]],["static-header-component.cjs",[[1,"static-header-component"]]]], options);
 });

@@ -9,6 +9,7 @@ import { GalleryEntry } from "./components/gallery-component/models/gallery-entr
 export namespace Components {
     interface GalleryComponent {
         "galleryEntries": GalleryEntry[];
+        "startTime": number;
     }
     interface HomeComponent {
     }
@@ -43,6 +44,7 @@ declare global {
 declare namespace LocalJSX {
     interface GalleryComponent {
         "galleryEntries"?: GalleryEntry[];
+        "startTime"?: number;
     }
     interface HomeComponent {
     }

@@ -1,25 +1,3 @@
-'use strict';
-
-function _interopNamespace(e) {
-  if (e && e.__esModule) return e;
-  var n = Object.create(null);
-  if (e) {
-    Object.keys(e).forEach(function (k) {
-      if (k !== 'default') {
-        var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(n, k, d.get ? d : {
-          enumerable: true,
-          get: function () {
-            return e[k];
-          }
-        });
-      }
-    });
-  }
-  n['default'] = e;
-  return Object.freeze(n);
-}
-
 const NAMESPACE = 'default-component';
 
 let scopeId;
@@ -578,6 +556,9 @@ const postUpdateComponent = (hostRef) => {
     const endPostUpdate = createTime('postUpdate', tagName);
     const instance =  hostRef.$lazyInstance$ ;
     const ancestorComponent = hostRef.$ancestorComponent$;
+    {
+        safeCall(instance, 'componentDidRender');
+    }
     if (!(hostRef.$flags$ & 64 /* hasLoadedComponent */)) {
         hostRef.$flags$ |= 64 /* hasLoadedComponent */;
         {
@@ -640,6 +621,10 @@ const addHydratedFlag = (elm) => ( elm.classList.add('hydrated') );
 const parsePropertyValue = (propValue, propType) => {
     // ensure this value is of the correct prop type
     if (propValue != null && !isComplexType(propValue)) {
+        if ( propType & 2 /* Number */) {
+            // force it to be a number
+            return parseFloat(propValue);
+        }
         // redundant return here for better minification
         return propValue;
     }
@@ -654,7 +639,7 @@ const setValue = (ref, propName, newVal, cmpMeta) => {
     const oldVal = hostRef.$instanceValues$.get(propName);
     const flags = hostRef.$flags$;
     const instance =  hostRef.$lazyInstance$ ;
-    newVal = parsePropertyValue(newVal);
+    newVal = parsePropertyValue(newVal, cmpMeta.$members$[propName][0]);
     if (( !(flags & 8 /* isConstructingInstance */) || oldVal === undefined) && newVal !== oldVal) {
         // gadzooks! the property's value has changed!!
         // set our new value!
@@ -685,13 +670,31 @@ const proxyComponent = (Cstr, cmpMeta, flags) => {
                     },
                     set(newValue) {
                         // proxyComponent, set value
-                        setValue(this, memberName, newValue);
+                        setValue(this, memberName, newValue, cmpMeta);
                     },
                     configurable: true,
                     enumerable: true,
                 });
             }
         });
+        if ( ( flags & 1 /* isElementConstructor */)) {
+            const attrNameToPropName = new Map();
+            prototype.attributeChangedCallback = function (attrName, _oldValue, newValue) {
+                plt.jmp(() => {
+                    const propName = attrNameToPropName.get(attrName);
+                    this[propName] = newValue === null && typeof this[propName] === 'boolean' ? false : newValue;
+                });
+            };
+            // create an array of attributes to observe
+            // and also create a map of html attribute name to js property name
+            Cstr.observedAttributes = members
+                .filter(([_, m]) => m[0] & 15 /* HasAttribute */) // filter to only keep props that should match attributes
+                .map(([propName, m]) => {
+                const attrName = m[1] || propName;
+                attrNameToPropName.set(attrName, propName);
+                return attrName;
+            });
+        }
     }
     return Cstr;
 };
@@ -926,11 +929,11 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     if (module) {
         return module[exportName];
     }
-    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
+    return import(
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
-    `./${bundleId}.entry.js${ ''}`)); }).then(importedModule => {
+    `./${bundleId}.entry.js${ ''}`).then(importedModule => {
         {
             cmpModules.set(bundleId, importedModule);
         }
@@ -981,7 +984,4 @@ const flush = () => {
 const nextTick = /*@__PURE__*/ (cb) => promiseResolve().then(cb);
 const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
 
-exports.bootstrapLazy = bootstrapLazy;
-exports.h = h;
-exports.promiseResolve = promiseResolve;
-exports.registerInstance = registerInstance;
+export { bootstrapLazy as b, h, promiseResolve as p, registerInstance as r };

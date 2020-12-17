@@ -1,6 +1,9 @@
 import { Component, h, Prop } from '@stencil/core';
 const URL = 'https://raw.githubusercontent.com/jorgeparavicini/StencilJS-Angular/GalleryComponent/Angular/src/assets/gallery_db.json';
 export class GalleryComponent {
+  constructor() {
+    this.startTime = 0;
+  }
   async loadGallery() {
     const response = await fetch(URL);
     if (!response.ok) {
@@ -17,6 +20,11 @@ export class GalleryComponent {
       return (h("div", { class: "page__content" }, this.galleryEntries.map((entry) => (h("div", { class: "entry" },
         h("img", { src: entry.imageUrl }),
         h("p", null, entry.imageDescription))))));
+    }
+  }
+  componentDidRender() {
+    if (this.galleryEntries) {
+      console.log(`Render Time: ${performance.now() - this.startTime}`);
     }
   }
   static get is() { return "gallery-component"; }
@@ -46,6 +54,24 @@ export class GalleryComponent {
         "tags": [],
         "text": ""
       }
+    },
+    "startTime": {
+      "type": "number",
+      "mutable": false,
+      "complexType": {
+        "original": "number",
+        "resolved": "number",
+        "references": {}
+      },
+      "required": false,
+      "optional": false,
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "attribute": "start-time",
+      "reflect": false,
+      "defaultValue": "0"
     }
   }; }
 }

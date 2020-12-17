@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property         | Attribute | Description | Type             | Default     |
-| ---------------- | --------- | ----------- | ---------------- | ----------- |
-| `galleryEntries` | --        |             | `GalleryEntry[]` | `undefined` |
+| Property         | Attribute    | Description | Type             | Default     |
+| ---------------- | ------------ | ----------- | ---------------- | ----------- |
+| `galleryEntries` | --           |             | `GalleryEntry[]` | `undefined` |
+| `startTime`      | `start-time` |             | `number`         | `0`         |
 
 
 ----------------------------------------------

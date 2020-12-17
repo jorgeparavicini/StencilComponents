@@ -9,6 +9,7 @@ const URL = 'https://raw.githubusercontent.com/jorgeparavicini/StencilJS-Angular
 })
 export class GalleryComponent {
   @Prop() galleryEntries: GalleryEntry[];
+  @Prop() startTime: number = 0;
 
   async loadGallery() {
     const response = await fetch(URL);
@@ -37,6 +38,12 @@ export class GalleryComponent {
           ))}
         </div>
       );
+    }
+  }
+
+  componentDidRender(): void {
+    if (this.galleryEntries) {
+      console.log(`Render Time: ${performance.now() - this.startTime}`);
     }
   }
 }
